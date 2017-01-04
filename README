@@ -1,0 +1,6 @@
+barel levy barel.levy@mail.huji.ac.il
+
+A program that get the output of samtools depth and display the data
+
+TODO: sort the chromosomes by order
+TODO: sort the sequences by the starting base
