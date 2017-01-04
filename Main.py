@@ -43,7 +43,6 @@ def get_solution(lines):
     count = 0
     solution = {}
     chrom = None
-
     for i in range(1, len(lines)):
         chrom = matcher.match(lines[i]).group(1)  # we get the name of the chromosome
         # if it is a new chromosome we add a new item to the dictionary

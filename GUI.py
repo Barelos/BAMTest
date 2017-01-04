@@ -58,12 +58,12 @@ class GUI:
         index = int(widget.curselection()[0])
         value = widget.get(index)
         # add some basic data:
-        self.list_seq.insert(tk.INSERT, self.headline_format % (len(self.solution[value])))
+        self.list_seq.insert(tk.END, self.headline_format % (len(self.solution[value])))
         self.list_seq.insert(tk.END, '\n')
         # add the data from the lists in the correct format
         for i in range(len(self.solution[value])):
             line_format = self.make_format(self.solution[value][i],i)
-            self.list_seq.insert(tk.INSERT, line_format)
+            self.list_seq.insert(tk.END, line_format)
             self.list_seq.insert(tk.END, '\n')
 
         # disable text editing
