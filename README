@@ -4,3 +4,5 @@ A program that get the output of samtools depth and display the data
 
 TODO: sort the chromosomes by order
 TODO: some chromosome first sequence is the one with the kargest starting base
+TODO: add a marker for the direction
+TODO: add functionality to take a directory and make all of them bed files

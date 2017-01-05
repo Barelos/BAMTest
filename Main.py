@@ -2,12 +2,13 @@
 
 import re
 import sys
-
-# a matcher to get individual parts of a BED line
 from GUI import GUI
 
+# a matcher to get individual parts of a BED line
 matcher = re.compile("(.+)\\t(.+)\\t(.+)")
-entry_path = None
+
+#.bed line format
+BED_FORMAT = "%s\t%s\t%s\n"
 
 # for debugging
 def read_file(path):
@@ -65,15 +66,17 @@ def get_solution(lines):
     return solution
 
 
-def find_sequences():
-    """
-    get a path and and return the solution inthe format specified in get_solution
-    :param path:
-    :return:
-    """
-    # lines = read_file(sys.argv[1])
-    lines = read_lines()
-    return get_solution(lines)
+def make_bed(solution):
+    # open a new .bed to write in
+    bed_file = open("test.bed", 'w')
+    # write in format
+    for key in solution.keys():
+        for line in solution[key]:
+            bed_file.write(BED_FORMAT % (key, line[0], line[1]))
+    # close the file
+    print("file closed")
+    bed_file.close()
+
 
 
 def main():
@@ -81,6 +84,8 @@ def main():
     # make the dictionary
     lines = read_lines()
     solution = get_solution(lines)
+    # make a bed file
+    make_bed(solution)
     # open the display window
     gui = GUI(solution)
 
